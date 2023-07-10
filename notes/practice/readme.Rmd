@@ -1,0 +1,7 @@
+## Survivor Dataset
+
+[Survivor Dataset](https://www.kaggle.com/datasets/justinveiner/survivor-cbs-dataset)
+
+This dataset shows a variety of data surrounding the CBS reality show "Survivor". It includes data from seasons 1-43 on all contestants that played.
+
+The purpose of this repository is to help me practice and cement my skills in R.
