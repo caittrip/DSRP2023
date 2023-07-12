@@ -1,0 +1,55 @@
+Filter observations of dataset
+
+```{r}
+## Downloading necessary libraries and csv's
+survivor <- read.csv("contestant_table.csv")
+str(survivor)
+library(ggplot2)
+# Only shows contestants from the 17th season
+filter(survivor, num_season == 17)
+```
+
+Create a smaller dataset
+
+```{r}
+# Only shows the name, season number, and finish in the table
+select(survivor, contestant_name, num_season, finish)
+```
+
+Add 2 new columns
+
+```{r}
+# sets finish to a character variable and adds up the total number of votes by season
+mutate(survivor,
+       finish = as.character(finish),
+       total_votes = sum(votes_against),
+       .by = num_season)
+     
+```
+
+Data table of grouped summaries of one numeric by one categorical
+
+```{r}
+# Shows the mean number of appearances based on season number and votes against them
+summarize(survivor, 
+          mean_num_appearance = mean(num_appearance),
+          .by = c(num_season, votes_against))
+```
+
+Reorder a data table
+
+```{r}
+# Arranges the dataset by least number of votes against to most number of votes against
+arrange(survivor, votes_against)
+```
+
+Visualization
+
+```{r}
+# Creates smaller dataset
+newSurvivor <- select(survivor, num_season, votes_against, finish)
+
+# Creates a scatterplot that compares the votes against someone and the placement they finished in
+ggplot(newSurvivor, aes(x = votes_against, y = finish)) + 
+  geom_jitter()
+```
