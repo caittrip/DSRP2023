@@ -28,3 +28,4 @@ ggplot(data = superData, aes(x = age, y = num_boot)) +
        title = "Placement of Survivor Contestant by Age") + 
   scale_y_reverse()
 
+       

@@ -1,8 +1,15 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+
 Filter observations of dataset
 
 ```{r}
 ## Downloading necessary libraries and csv's
 survivor <- read.csv("contestant_table.csv")
+read.csv("contestant_table.csv")
 str(survivor)
 library(ggplot2)
 # Only shows contestants from the 17th season
